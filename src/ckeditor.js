@@ -63,11 +63,15 @@ ClassicEditor.builtinPlugins = [
 const headingConfig = {
     options: [
         { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-        { model: 'heading1', view: 'h2', title: 'Heading 1', class: 'ck-heading_heading1' },
-        { model: 'heading2', view: 'h3', title: 'Heading 2', class: 'ck-heading_heading2' },
-        { model: 'heading3', view: 'h4', title: 'Heading 3', class: 'ck-heading_heading3' }
+        { model: 'heading1', view: { name: 'h2', classes: '_heading_2' }, title: 'Heading 1', class: 'ck-heading_heading1' },
+        { model: 'heading2', view: { name: 'h3', classes: '_heading_3' }, title: 'Heading 2', class: 'ck-heading_heading2' },
+        { model: 'heading3', view: { name: 'h4', classes: '_heading_4' }, title: 'Heading 3', class: 'ck-heading_heading3' }
     ]
 };
+
+const mediaEmbedConfig = {
+	removeProviders: [ 'spotify', 'instagram', 'twitter', 'flickr', 'facebook' ]
+}
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
@@ -98,6 +102,7 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	heading: headingConfig,
+	mediaEmbed: mediaEmbedConfig,
 	// table: {
 	// 	contentToolbar: [
 	// 		'tableColumn',
