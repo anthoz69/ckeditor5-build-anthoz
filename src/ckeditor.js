@@ -6,6 +6,8 @@
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 
+import './custom.css';
+
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 // import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
@@ -58,6 +60,15 @@ ClassicEditor.builtinPlugins = [
 	Autosave
 ];
 
+const headingConfig = {
+    options: [
+        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+        { model: 'heading1', view: 'h2', title: 'Heading 1', class: 'ck-heading_heading1' },
+        { model: 'heading2', view: 'h3', title: 'Heading 2', class: 'ck-heading_heading2' },
+        { model: 'heading3', view: 'h4', title: 'Heading 3', class: 'ck-heading_heading3' }
+    ]
+};
+
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
@@ -86,6 +97,7 @@ ClassicEditor.defaultConfig = {
 			'imageTextAlternative'
 		]
 	},
+	heading: headingConfig,
 	// table: {
 	// 	contentToolbar: [
 	// 		'tableColumn',
